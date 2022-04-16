@@ -1,26 +1,21 @@
 <template>
-  <v-app id="inspire">
-    <v-app-bar app color="white" flat>
-      <v-container>
-        <NuxtLink to="/">
-          <v-toolbar-title>Survey Maker</v-toolbar-title>
-        </NuxtLink>
-      </v-container>
-
-      <v-container>
-        <v-tabs right class="ml-n9" color="grey darken-1">
-          <v-tab v-for="link in links" :key="link.title" :to="{ name: link.to }">
-            {{ link.title }}
-          </v-tab>
-        </v-tabs>
-      </v-container>
+  <v-app>
+    <v-app-bar
+      app
+      clipped
+      fixed
+    >
+      <v-toolbar-title>Survey Maker</v-toolbar-title>
     </v-app-bar>
 
     <v-main class="grey lighten-3">
       <v-container>
         <v-row>
-          <v-col cols="12" sm="12">
-            <v-sheet min-height="70vh" rounded="lg">
+          <v-col
+            cols="12"
+            sm="12"
+          >
+            <v-sheet rounded="lg">
               <Nuxt />
             </v-sheet>
           </v-col>
@@ -32,7 +27,7 @@
 
 <script>
 export default {
-  name: "DefaultPage",
+  name: "DefaultLayout",
   data () {
     return {
       links: [
