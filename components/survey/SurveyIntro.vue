@@ -3,7 +3,9 @@
     class="ma-4"
   >
     <v-card-title>
-      <h1 class="mb-4">{{ title }}</h1>
+      <h1 class="mb-4">
+        {{ title }}
+      </h1>
     </v-card-title>
     <v-card-subtitle>
       <h3>{{ description }}</h3>

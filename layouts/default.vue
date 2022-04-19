@@ -44,7 +44,7 @@ export default {
       links: [
         { label: "Log in", to: "logIn" },
         { label: "Get started", to: "register" },
-        { label: "Create Survey", to: "create" }
+        { label: "Create Survey", to: "create/title" }
       ]
     }
   }

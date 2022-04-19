@@ -71,8 +71,10 @@ export default {
       this.showPreview = false
     }
   },
-  beforeDestroy () {
-    this.$emit("on")
+  watch: {
+    inputData (newInputData) {
+      this.$emit("onInputDataChange", newInputData)
+    }
   }
 }
 </script>
