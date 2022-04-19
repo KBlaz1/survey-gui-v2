@@ -31,12 +31,6 @@
 <script>
 export default {
   name: "FromList",
-  props: {
-    drawer: {
-      typeof: Boolean,
-      default: true
-    }
-  },
   data () {
     return {
       forms: [],

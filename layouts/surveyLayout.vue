@@ -5,7 +5,9 @@
       clipped-right
       fixed
     >
-      <v-toolbar-title>Survey Maker</v-toolbar-title>
+      <nuxt-link to="/">
+        <v-toolbar-title>Survey Maker</v-toolbar-title>
+      </nuxt-link>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
@@ -33,7 +35,7 @@ export default {
   components: { FormList },
   data () {
     return {
-      drawer: true
+      drawer: false
     }
   }
 }

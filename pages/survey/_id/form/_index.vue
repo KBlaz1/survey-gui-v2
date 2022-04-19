@@ -14,9 +14,7 @@
       <v-card-title>{{ question.label }}</v-card-title>
     </v-card>
   -->
-    <v-card class="ma-4">
-      <v-card-title> {{ form.title }} </v-card-title>
-    </v-card>
+    <form-intro :title="form.title" />
     <template v-for="question in form.questions">
       <question
         :key="question.questionID.uuid"
@@ -33,8 +31,11 @@
 </template>
 
 <script>
+import FormIntro from "~/components/survey/FormIntro.vue"
+import Question from "~/components/survey/Question.vue"
 export default {
   name: "FormPage",
+  components: { FormIntro, Question },
   layout: "surveyLayout",
   data () {
     return {

@@ -20,7 +20,8 @@ export default {
   props: {
     question: {
       type: Object,
-      default: () => {}
+      default: () => {},
+      required: true
     }
   }
 }

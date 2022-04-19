@@ -9,9 +9,8 @@ export const getters = {
     return state.answers.find(answer => answer.id === questionUUID)
   },
   getQuestionUUIDs () {
-    if (state.answers !== undefined) {
+    if (state.answers !== undefined)
       return state.answers.map(answer => answer.questionUUID)
-    }
 
     return []
   }
@@ -27,10 +26,9 @@ export const mutations = {
     const foundAnswer = state.answers.find(a => a.questionUUID === answer.questionUUID)
 
     // overwriting answer in state if the an answer with the same uuid already exists
-    if (foundAnswer === undefined) {
+    if (foundAnswer === undefined)
       state.answers.push(answer)
-    } else {
+    else
       state.answers[state.answers.indexOf(foundAnswer)] = answer
-    }
   }
 }

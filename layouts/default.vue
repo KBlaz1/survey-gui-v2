@@ -6,6 +6,17 @@
       fixed
     >
       <v-toolbar-title>Survey Maker</v-toolbar-title>
+      <v-spacer />
+
+      <v-btn
+        v-for="link in links"
+        :key="link"
+        text
+        nuxt
+        :to="link.to"
+      >
+        {{ link.label }}
+      </v-btn>
     </v-app-bar>
 
     <v-main class="grey lighten-3">
@@ -31,9 +42,9 @@ export default {
   data () {
     return {
       links: [
-        { title: "Browse", to: "browse" },
-        { title: "Log in", to: "logIn" },
-        { title: "Get started", to: "register" }
+        { label: "Log in", to: "logIn" },
+        { label: "Get started", to: "register" },
+        { label: "Create Survey", to: "create" }
       ]
     }
   }

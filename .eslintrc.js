@@ -22,6 +22,8 @@ module.exports = {
     // we use 2 spaces to indent our code
     indent: ["error", 2],
     // we want to avoid extraneous spaces
-    "no-multi-spaces": ["error"]
+    "no-multi-spaces": ["error"],
+    // see: https://eslint.org/docs/rules/curly
+    curly: ["error", "multi"]
   }
 }
