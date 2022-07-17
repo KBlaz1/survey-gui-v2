@@ -5,7 +5,7 @@
       clipped-right
       fixed
     >
-      <nuxt-link to="/">
+      <nuxt-link to="/" style="text-decoration: none; color: black">
         <v-toolbar-title>Survey Maker</v-toolbar-title>
       </nuxt-link>
       <v-spacer />
@@ -21,7 +21,7 @@
       <form-list />
     </v-navigation-drawer>
     <v-main style="padding: 0px">
-      <v-main class="grey lighten-3">
+      <v-main class="grey lighten-3" style="height: 100vh">
         <Nuxt />
       </v-main>
     </v-main>

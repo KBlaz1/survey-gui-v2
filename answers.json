@@ -1,0 +1,12 @@
+[
+  {
+    "questionUUID": "1234-123",
+    "answers": [
+      {
+        "answerOptionUUID": "1234-1234",
+        "text": "vegetable",
+        "respondentAnswer": false
+      }
+    ]
+  }
+]

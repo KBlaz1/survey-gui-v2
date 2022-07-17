@@ -53,6 +53,17 @@ export default {
       surveyID: {}
     }
   },
+  computed: {
+    linkTitle () {
+      if (this.surveyID === undefined)
+        return "/create/title"
+      else
+        return "/survey/" + this.surveyID.uuid
+    },
+    getForms () {
+      return this.$store.getters["survey/getForms"]
+    }
+  },
   watch: {
     $route (to, from) {
       this.answeredQuestions = this.$store.getters["answers/getQuestionUUIDs"]
@@ -77,17 +88,6 @@ export default {
         return "/create/form/" + formIndex
       else
         return "/survey/" + this.surveyID.uuid + "/form/" + formIndex
-    }
-  },
-  computed: {
-    linkTitle () {
-      if (this.surveyID === undefined)
-        return "/create/title"
-      else
-        return "/survey/" + this.surveyID.uuid
-    },
-    getForms () {
-      return this.$store.getters["survey/getForms"]
     }
   }
 }

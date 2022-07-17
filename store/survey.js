@@ -53,5 +53,9 @@ export const mutations = {
     }
     state.survey = survey
     sessionStorage.setItem("survey", JSON.stringify(survey))
+  },
+  ADD_FORM (state, form) {
+    if (state.survey !== undefined)
+      state.survey.forms.add(form)
   }
 }

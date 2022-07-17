@@ -1,5 +1,8 @@
 <template>
-  <v-card class="ma-4">
+  <v-card
+    style="width: 500px"
+    class="mx-auto my-sm-6"
+  >
     <v-card-title> {{ title }} </v-card-title>
   </v-card>
 </template>
@@ -10,7 +13,8 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
+      required: true
     }
   }
 }

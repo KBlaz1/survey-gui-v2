@@ -1,7 +1,6 @@
 <template>
-  <v-card
+  <div
     v-click-outside="onClickOutside"
-    class="ma-4"
     :class="{ previewCard: showPreview }"
     @click.native="onCardClick"
   >
@@ -12,6 +11,10 @@
         :title="inputData.title"
         :description="inputData.description"
       />
+      <form-intro
+        v-if="formIntro"
+        :title="inputData.title"
+      />
     </div>
 
     <!-- input types -->
@@ -19,32 +22,36 @@
       <create-survey-intro
         v-if="surveyIntro"
         @onIsValidChange="setIsValid"
-        @onSurveyChange="setSurvey"
+        @onSurveyChange="setInputData"
       />
-      <input-type-form-component
-        v-if="form"
+      <create-form-intro
+        v-if="formIntro"
+        @onIsValidChange="setIsValid"
+        @onSurveyChange="setInputData"
       />
     </div>
-  </v-card>
+  </div>
 </template>
 
 <script>
 import SurveyIntro from "../survey/SurveyIntro.vue"
+import FormIntro from "../survey/FormIntro.vue"
 import createSurveyIntro from "./inputTypes/CreateSurveyIntro.vue"
-import InputTypeFormComponent from "./inputTypes/InputTypeForm.vue"
+import createFormIntro from "./inputTypes/CreateFormIntro.vue"
 export default {
   name: "InputCreateComponent",
   components: {
     createSurveyIntro,
-    InputTypeFormComponent,
-    SurveyIntro
+    createFormIntro,
+    SurveyIntro,
+    FormIntro
   },
   props: {
     surveyIntro: {
       type: Boolean,
       default: false
     },
-    form: {
+    formIntro: {
       type: Boolean,
       default: false
     }
@@ -56,12 +63,20 @@ export default {
       inputData: {}
     }
   },
+  watch: {
+    inputData (newInputData) {
+      this.$emit("onInputDataChange", newInputData)
+    },
+    isValid (newValue) {
+      this.$emit("onIsValidChange", newValue)
+    }
+  },
   methods: {
     setIsValid (newValue) {
       this.isValid = newValue
     },
-    setSurvey (survey) {
-      this.inputData = survey
+    setInputData (data) {
+      this.inputData = data
     },
     onClickOutside () {
       if (this.isValid)
@@ -69,11 +84,6 @@ export default {
     },
     onCardClick () {
       this.showPreview = false
-    }
-  },
-  watch: {
-    inputData (newInputData) {
-      this.$emit("onInputDataChange", newInputData)
     }
   }
 }
